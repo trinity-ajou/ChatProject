@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="vertical">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:visibility="visible" tools:visibility="visible">
+            <ImageView
+                    android:layout_width="47dp"
+                    android:layout_height="40dp" app:srcCompat="@android:drawable/ic_menu_revert"
+                    android:id="@+id/imageView"
+                    android:background="#EC1560"
+                    />
+            <TextView
+                    android:text="  이메일 인증"
+                    android:textColor="#DCF7EE"
+                    android:textSize="26sp"
+
+                    android:background="#EC1560"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" android:id="@+id/textView21"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    />
+        </LinearLayout>
+
+        <TextView
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:text="이메일 인증"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView10"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        <EditText
+                android:layout_marginLeft="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/email" android:hint="Email"/>
+        <Button
+                android:text="이메일 인증"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/authentication_email"/>
+
+    </LinearLayout>
+</LinearLayout>
