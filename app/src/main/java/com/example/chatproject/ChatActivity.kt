@@ -39,6 +39,7 @@ class ChatActivity : AppCompatActivity() {
 
         btnSend.setOnClickListener() {
             var stText: String = etText.getText().toString();
+            etText.setText(null)
             if (stText.equals("") || stText.isEmpty()) {
                 Toast.makeText(this, "내용을 입력하세요", Toast.LENGTH_SHORT).show()
             } else {
@@ -55,6 +56,7 @@ class ChatActivity : AppCompatActivity() {
                 chat.put("text", stText)
                 myRef.setValue(chat)
             }
+
         }
 
 
