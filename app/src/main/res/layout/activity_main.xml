@@ -60,9 +60,10 @@
             android:text="Login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/editText"
-            android:id="@+id/button" android:layout_marginTop="80dp" android:layout_marginEnd="177dp"/>
+            android:layout_marginLeft="160dp"
+            android:layout_below="@+id/login_pw"
+            android:id="@+id/login"
+    />
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
             android:ems="10"
             android:hint="Email"
             android:layout_alignParentStart="false" android:layout_marginStart="96dp"
-            android:layout_alignParentTop="false" android:id="@+id/editText" android:layout_marginTop="300dp"/>
+            android:layout_alignParentTop="false" android:id="@+id/login_email" android:layout_marginTop="300dp"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,5 +79,5 @@
             android:hint="Password"
             android:ems="10"
             android:layout_alignParentStart="false" android:layout_marginStart="95dp"
-            android:layout_alignParentBottom="false" android:id="@+id/editText2" android:layout_marginTop="350dp"/>
+            android:layout_alignParentBottom="false" android:id="@+id/login_pw" android:layout_marginTop="350dp"/>
 </RelativeLayout>

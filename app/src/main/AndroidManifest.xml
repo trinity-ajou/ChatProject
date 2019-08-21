@@ -11,6 +11,7 @@
             android:theme="@style/AppTheme">
         <activity android:name=".EmailActivity"/>
         <activity android:name=".FindActivity"/>
+        <activity android:name=".ChatActivity"/>
         <activity android:name=".AuthenticationActivity"/>
         <activity android:name=".AuthenticationActivity2"/>
         <activity android:name=".MainActivity">

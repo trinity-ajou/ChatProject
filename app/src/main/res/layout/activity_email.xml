@@ -20,7 +20,7 @@
 
                 android:background="#EC1560"
                 android:layout_width="match_parent"
-                android:layout_height="40dp" android:id="@+id/textView21"
+                android:layout_height="40dp" android:id="@+id/register"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" android:layout_alignParentStart="true"/>
     </LinearLayout>
 
@@ -30,7 +30,7 @@
             android:textSize="18sp"
             android:text="학교 입력"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView2"
+            android:layout_height="wrap_content" android:id="@+id/school"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" android:layout_alignParentStart="true"/>
     <EditText
 
@@ -39,14 +39,14 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText6" android:hint="학교"/>
+            android:id="@+id/school_text" android:hint="학교"/>
     <TextView
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
             android:textSize="18sp"
             android:text="로그인 정보 입력"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView15"
+            android:layout_height="wrap_content" android:id="@+id/login_info"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
     <EditText
             android:layout_marginTop="5dp"
@@ -54,21 +54,21 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/editText5" android:hint="이메일"/>
+            android:id="@+id/email_text" android:hint="이메일"/>
     <EditText
             android:layout_marginLeft="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/editText3" android:hint="비밀번호"/>
+            android:id="@+id/password_text" android:hint="비밀번호"/>
     <EditText
             android:layout_marginLeft="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/editText2" android:hint="비밀번호 확인"/>
+            android:id="@+id/password_again" android:hint="비밀번호 확인"/>
     <TextView
             android:layout_marginTop="10dp"
             android:layout_marginLeft="3dp"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText12" android:layout_alignParentStart="true" android:hint="이름"/>
+            android:id="@+id/user_name" android:layout_alignParentStart="true" android:hint="이름"/>
     <TextView
 
             android:layout_marginLeft="3dp"
@@ -106,12 +106,12 @@
         <CheckBox
                 android:text="남자"
                 android:layout_width="110dp"
-                android:layout_height="wrap_content" android:id="@+id/checkBox2" android:layout_alignParentStart="true"
+                android:layout_height="wrap_content" android:id="@+id/male" android:layout_alignParentStart="true"
                 android:layout_marginStart="20dp" android:layout_alignParentTop="true" android:layout_marginTop="-1dp"/>
         <CheckBox
                 android:text="여자"
                 android:layout_width="139dp"
-                android:layout_height="wrap_content" android:id="@+id/checkBox3" android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content" android:id="@+id/female" android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true" android:layout_marginEnd="17dp" android:layout_marginTop="0dp"/>
     </RelativeLayout>
     <TextView
@@ -128,7 +128,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText8" android:hint="학번"/>
+            android:id="@+id/school_number" android:hint="학번"/>
     <Button
             android:text="다음"
             android:layout_gravity="right"
