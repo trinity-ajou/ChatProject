@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
                             val user = mAuth.currentUser
-                            val intent = Intent(this,ChatActivity::class.java)
+                            val intent = Intent(this,main_screen::class.java)
                             startActivity(intent)
                         } else {
                             // If sign in fails, display a message to the user.
