@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
                             val user = mAuth.currentUser
+                            val intent = Intent(this,ChatActivity::class.java)
+                            startActivity(intent)
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.exception)
@@ -43,8 +45,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         // ...
                     }
-                val intent = Intent(this,ChatActivity::class.java)
-                startActivity(intent)
+
             }
 
         }

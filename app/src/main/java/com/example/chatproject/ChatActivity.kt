@@ -59,7 +59,7 @@ class ChatActivity : AppCompatActivity() {
 
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = MyAdapter(comments)
+        viewAdapter = MyAdapter(comments,email)
 
         recyclerView = findViewById<RecyclerView>(R.id.my_recycler_view).apply {
             // use this setting to improve performance if you know that changes

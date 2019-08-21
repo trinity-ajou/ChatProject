@@ -11,7 +11,7 @@ import org.w3c.dom.Text
 import java.util.ArrayList
 
 
-public class MyAdapter(val comments : ArrayList<Msg>) :
+public class MyAdapter(val comments : ArrayList<Msg>,val stEmail : String?) :
 
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
@@ -23,13 +23,28 @@ public class MyAdapter(val comments : ArrayList<Msg>) :
         var mTextView :TextView = textView.findViewById(R.id.mTextView)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        if(comments.get(position).email.equals(stEmail)){
+            return 1
+            }else{
+            return 2
+        }
 
+    }
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): MyAdapter.MyViewHolder {
         // create a new view
-        val textView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.my_text_view, parent, false) as View
+        val textView : View
+        if(viewType ==1){
+            textView = LayoutInflater.from(parent.context)
+                .inflate(R.layout.right_text_view, parent, false) as View
+        }else {
+            textView = LayoutInflater.from(parent.context)
+                .inflate(R.layout.my_text_view, parent, false) as View
+
+        }
+
         // set the view's size, margins, paddings and layout parameters
         return MyViewHolder(textView)
     }
