@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
- >
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity"
+                android:background="@drawable/login_theme3">
+    >
 
     <ProgressBar
             android:id="@+id/loading"
@@ -22,62 +23,61 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.346" app:layout_constraintHorizontal_bias="0.498"/>
 
-   <Button
-           android:text="회원가입"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           tools:layout_editor_absoluteY="590dp"
-           tools:layout_editor_absoluteX="283dp"
-           android:id="@+id/register"
-           android:layout_alignParentEnd="true"
-           android:layout_marginEnd="28dp"
-           android:layout_alignParentBottom="true"
-           android:layout_marginBottom="130dp"/>
     <Button
-            android:text="비밀번호 찾기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:layout_width="97dp"
+            android:layout_height="39dp"
+            tools:layout_editor_absoluteY="590dp"
+            tools:layout_editor_absoluteX="283dp"
+            android:id="@+id/register"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="221dp"
+            android:layout_marginRight="221dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="14dp" android:layout_below="@+id/login" android:layout_alignParentStart="true"
+            android:layout_marginLeft="93dp" android:layout_marginStart="93dp" android:layout_alignParentLeft="true"
+            android:background="#00FFFFFF"/>
+    <Button
+            android:text="ID/비밀번호 찾기"
+            android:layout_width="105dp"
+            android:layout_height="39dp"
             tools:layout_editor_absoluteY="651dp"
             tools:layout_editor_absoluteX="267dp"
             android:id="@+id/password"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="24dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="60dp"/>
-    <TextView
-            android:text="Login"
-            android:textSize="54sp"
-            android:layout_width="155dp"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="183dp"
-            android:id="@+id/textView3"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="130dp"
-            android:layout_marginTop="160dp"/>
+            android:layout_marginLeft="62dp" android:layout_marginStart="62dp"
+            android:layout_alignLeft="@+id/login" android:layout_alignStart="@+id/login"
+            android:layout_marginTop="14dp" android:layout_below="@+id/login" android:background="#00FFFFFF"/>
     <Button
             android:text="Login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="160dp"
             android:layout_below="@+id/login_pw"
             android:id="@+id/login"
-    />
+            android:layout_marginTop="10dp" android:layout_alignParentStart="true" android:layout_marginLeft="156dp"
+            android:layout_marginStart="156dp" android:layout_alignParentLeft="true"
+            android:layout_marginRight="157dp" android:layout_marginEnd="157dp"
+            android:layout_alignParentEnd="true" android:layout_alignParentRight="true" android:background="#FFD5D5"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
             android:hint="Email"
-            android:layout_alignParentStart="false" android:layout_marginStart="96dp"
-            android:layout_alignParentTop="false" android:id="@+id/login_email" android:layout_marginTop="300dp"/>
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_marginLeft="96dp"
+            android:layout_marginStart="96dp"
+            android:layout_alignParentTop="false" android:id="@+id/login_email" android:layout_marginTop="300dp"
+            android:textColorLink="@color/colorAccent" android:textAllCaps="false"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Password"
             android:ems="10"
-            android:layout_alignParentStart="false" android:layout_marginStart="95dp"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
             android:layout_alignParentBottom="false" android:id="@+id/login_pw" android:layout_marginTop="350dp"/>
 </RelativeLayout>
