@@ -12,8 +12,13 @@ class main_screen : AppCompatActivity() {
         setContentView(R.layout.activity_main_screen)
 
         group_match_button.setOnClickListener {
-            val groupmatIntent = Intent(this, GroupMatch_main::class.java)
-            startActivity(groupmatIntent)
+            val groupmat_Intent = Intent(this, GroupMatch_main::class.java)
+            startActivity(groupmat_Intent)
+        }
+
+        random_match_button.setOnClickListener {
+            val match_Intent = Intent(this, ChatActivity::class.java)
+            startActivity(match_Intent)
         }
     }
 }
