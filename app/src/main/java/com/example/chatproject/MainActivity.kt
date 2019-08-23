@@ -10,8 +10,9 @@ import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.firebase.auth.FirebaseAuth
-
-
+import com.google.firebase.database.FirebaseDatabase
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        var database = FirebaseDatabase.getInstance()
+        var login_info= Hashtable<String, String>()
         mAuth = FirebaseAuth.getInstance();
 
         login.setOnClickListener {
@@ -35,6 +37,9 @@ class MainActivity : AppCompatActivity() {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
                             val user = mAuth.currentUser
+                            var myRef = database.getReference().child("user_login")
+                            login_info.put("email",login_email.text.toString())
+                            myRef.setValue(login_info)
                             val intent = Intent(this,main_screen::class.java)
                             startActivity(intent)
                         } else {

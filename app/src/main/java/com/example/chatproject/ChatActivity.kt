@@ -1,6 +1,7 @@
 package com.example.chatproject
 
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,7 +51,7 @@ class ChatActivity : AppCompatActivity() {
                 var formattedDate = df.format(c.getTime())
 
 
-                var myRef = database.getReference().child(formattedDate)
+                var myRef = database.getReference().child("chats").child(formattedDate)
 
                 chat.put("email", email)
                 chat.put("text", stText)
@@ -73,7 +74,7 @@ class ChatActivity : AppCompatActivity() {
 
             // specify an viewAdapter (see also next example)
             adapter = viewAdapter
-            var myRef2 = database.getReference()
+            var myRef2 = database.getReference().child("chats")
             myRef2.addChildEventListener(
                 object : ChildEventListener {
 
