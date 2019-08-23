@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance();
 
+        login_email.setText("ssoo2024@naver.com")
+        login_pw.setText("sskim505")
+
         login.setOnClickListener {
 
             if (login_email.text.toString().length == 0 || login_pw.text.toString().length == 0){
