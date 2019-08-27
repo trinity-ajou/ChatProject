@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private val TAG : String = "MainActivity"
@@ -51,13 +50,9 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(baseContext, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show()
                         }
-                        // ...
                     }
-
             }
-
         }
-
 
         register.setOnClickListener{
             val intent = Intent(this,EmailActivity::class.java)
@@ -68,5 +63,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 }
