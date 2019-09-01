@@ -87,6 +87,7 @@ class ChatActivity : AppCompatActivity() {
                         // Update RecyclerView
                         if(m is Msg) {
                             comments.add(m)
+                            my_recycler_view.scrollToPosition(comments.size-1)
                             viewAdapter.notifyItemInserted(comments.size - 1)
                             // [END_EXCLUDE]
                         }

@@ -39,8 +39,11 @@ class MainActivity : AppCompatActivity() {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success")
                             val user = mAuth.currentUser
+                            var c = Calendar.getInstance();
+                            var df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                            var formattedDate = df.format(c.getTime())
                             var myRef = database.getReference().child("user_login")
-                            login_info.put("email",login_email.text.toString())
+                            login_info.put(formattedDate,login_email.text.toString())
                             myRef.setValue(login_info)
                             val intent = Intent(this,main_screen::class.java)
                             startActivity(intent)

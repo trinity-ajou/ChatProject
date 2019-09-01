@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+    <Button
+
+            android:id="@+id/click"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="true" android:layout_marginEnd="0dp" android:layout_marginRight="0dp"
+            android:layout_weight="2" android:gravity="right"
+            android:text="Send" android:visibility="visible" tools:visibility="visible"/><![CDATA[
+    />
+
+    ]]>
+    <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/view_chatlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/TextBottom"
+            android:layout_marginBottom="-44dp"
+            android:background="#183F83" android:scrollbars="vertical"/>
+    <EditText
+            android:id="@+id/TextBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+/>
+
+
+
+</RelativeLayout>
+
