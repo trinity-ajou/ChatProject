@@ -3,7 +3,7 @@
 
 
                 xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="wrap_content" >
     <Button
 
             android:id="@+id/click"
@@ -24,7 +24,7 @@
 
             android:id="@+id/view_chatlist"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/TextBottom"
             android:layout_marginBottom="-44dp"
             android:background="#183F83" android:scrollbars="vertical"/>
