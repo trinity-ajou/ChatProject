@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -28,7 +29,26 @@ class main_screen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
-
+        var user = FirebaseAuth.getInstance().getCurrentUser()
+        var database = FirebaseDatabase.getInstance()
+        var emailadd: String? = ""
+        var usruid: String? = ""
+        var sex: String? = ""
+        var usrinfo = Hashtable<String, String>()
+        var matchingQ = Hashtable<String, String>()
+        if (user != null){
+            emailadd = user.getEmail()
+            usruid = user.uid
+            val myRef = database.getReference().child("usrInfo").child(user.uid)
+            usrinfo.put("chatUID", "-1")
+            usrinfo.put("email", emailadd)
+            if (emailadd == "ssoo2024@naver.com")
+                sex = "male"
+            else
+                sex = "female"
+            usrinfo.put("sex", sex)
+            myRef.setValue(usrinfo)
+        }
         group_match_button.setOnClickListener {
             val groupmat_Intent = Intent(this, GroupMatch_main::class.java)
             startActivity(groupmat_Intent)
@@ -36,7 +56,22 @@ class main_screen : AppCompatActivity() {
 
         random_match_button.setOnClickListener {
             val match_Intent = Intent(this, ChatActivity::class.java)
-            startActivity(match_Intent)
+            val myRef = database.getReference().child("waitList").child(sex.toString())
+            if ((emailadd == "ssoo2024@naver.com") || emailadd == "pinutt527@naver.com")
+            {
+                matchingQ.put(usruid, "1")
+                myRef.setValue(matchingQ)
+                Toast.makeText(baseContext, "매칭 되었습니다!",
+                    Toast.LENGTH_SHORT).show()
+                startActivity(match_Intent)
+            }
+            else
+            {
+                Toast.makeText(baseContext, "랜덤 매칭 중",
+                    Toast.LENGTH_SHORT).show()
+
+            }
+
         }
         bottom_menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
