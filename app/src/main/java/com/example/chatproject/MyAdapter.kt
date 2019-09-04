@@ -27,10 +27,8 @@ public class MyAdapter(val comments : ArrayList<Msg>,val stEmail : String?) :
         if(comments.get(position).email.equals(stEmail)){
             return 1
             }else{    // Create new views (invoked by the layout manager)
-
             return 2
         }
-
     }
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): MyAdapter.MyViewHolder {

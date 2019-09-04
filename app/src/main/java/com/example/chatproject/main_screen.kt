@@ -1,12 +1,11 @@
 package com.example.chatproject
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,14 +28,7 @@ class main_screen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
 
-        group_match_button.setOnClickListener {
-            val groupmat_Intent = Intent(this, GroupMatch_main::class.java)
-            startActivity(groupmat_Intent)
-        }
-
         random_match_button.setOnClickListener {
-            val match_Intent = Intent(this, ChatActivity::class.java)
-            startActivity(match_Intent)
         }
         bottom_menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
@@ -47,8 +39,6 @@ class main_screen : AppCompatActivity() {
                 val fragmentA = MatchingFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentA)
                     .commit()
-                //random_match_button.setVisibility(View.VISIBLE)
-                //group_match_button.setVisibility(View.VISIBLE)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.chat_room -> {
@@ -56,8 +46,6 @@ class main_screen : AppCompatActivity() {
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentB)
                     .commit()
                 random_match_button.setVisibility(View.GONE)
-                group_match_button.setVisibility(View.GONE)
-
                 return@OnNavigationItemSelectedListener true
             }
             R.id.more -> {
@@ -65,21 +53,17 @@ class main_screen : AppCompatActivity() {
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentC)
                     .commit()
                 random_match_button.setVisibility(View.GONE)
-                group_match_button.setVisibility(View.GONE)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.group -> {
+                val fragmentD = GroupFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentD)
+                    .commit()
+                random_match_button.setVisibility(View.GONE)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
-    }
-
-}
-
-class MatchingFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.activity_main_screen, container, false)
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 }
 
@@ -124,7 +108,7 @@ class ChatListFragment : Fragment() {
                         // Update RecyclerView
                         if (m is ChatList_Data) {
                             room_list.add(m)
-                            view_chatlist.scrollToPosition(room_list.size - 1)
+                            //view_chatlist.scrollToPosition(room_list.size - 1)
                             viewAdapter.notifyItemInserted(room_list.size - 1)
                             // [END_EXCLUDE]
                         }
@@ -146,31 +130,8 @@ class ChatListFragment : Fragment() {
 
                     }
                 })
-            click.setOnClickListener() {
-
-                var c = Calendar.getInstance();
-                var df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-                var formattedDate = df.format(c.getTime())
-
-
-                var myRef = database.getReference().child("Room").child(formattedDate)
-
-                room_id.put("email", "hawi")
-                room_id.put("text", "gimochi")
-                myRef.setValue(room_id)
-            }
 
         }
 
     }
 }
-    class MoreFragment : Fragment() {
-        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.fragment_more, container, false)
-
-        override fun onActivityCreated(savedInstanceState: Bundle?) {
-            super.onActivityCreated(savedInstanceState)
-        }
-    }
-
-

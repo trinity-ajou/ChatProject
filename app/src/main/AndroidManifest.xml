@@ -16,7 +16,6 @@
         <activity android:name=".AuthenticationActivity2"/>
         <activity android:name=".GroupMatch_main"/>
         <activity android:name=".main_screen"/>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
