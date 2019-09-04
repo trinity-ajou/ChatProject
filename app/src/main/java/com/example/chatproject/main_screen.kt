@@ -85,7 +85,7 @@ class ChatListFragment : Fragment() {
         var myRef = database.getReference("Room")
 
         viewManager = LinearLayoutManager(activity)
-        viewAdapter = ChatAdapter(room_list)
+        viewAdapter = ChatAdapter( context,room_list)
 
         recyclerView = view_chatlist.apply {
             setHasFixedSize(true)
