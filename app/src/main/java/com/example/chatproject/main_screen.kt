@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,8 +32,74 @@ class main_screen : AppCompatActivity() {
 
         setTitle("매칭")
 
+        var user = FirebaseAuth.getInstance().getCurrentUser()
+        var database = FirebaseDatabase.getInstance()
+        var emailadd: String? = ""
+        var usruid: String? = ""
+        var sex: String? = ""
+        var opsex: String? = ""
+        var chatuid: String? = ""
+        var usrinfo = Hashtable<String, String>()
+        var matchingQ = Hashtable<String, String>()
+        if (user != null){
+            emailadd = user.getEmail()
+            usruid = user.uid
+            val myRef = database.getReference().child("usrInfo").child(usruid.toString())
+            usrinfo.put("chatUID", "-1")
+            usrinfo.put("email", emailadd)
+            if (emailadd == "ssoo2024@naver.com")
+            {
+                sex = "male"
+                opsex = "female"
+            }
+            else
+            {
+                sex = "female"
+                opsex = "male"
+            }
+            usrinfo.put("sex", sex)
+            myRef.setValue(usrinfo)
+        }
         random_match_button.setOnClickListener {
 
+            val myRef = database.getReference().child("waitList").child(sex.toString()) //사용자의 성별 가져옴
+            val opRef = database.getReference().child("waitList").child(opsex.toString())
+            opRef.addChildEventListener(object : ChildEventListener{
+                override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                    val obUID = dataSnapshot.getValue(String::class.java)
+                    if (obUID == null) //waitlist에 이성이 없다면
+                    {
+                        Toast.makeText(baseContext, "랜덤 매칭 중", Toast.LENGTH_SHORT).show()
+                        matchingQ.put(usruid, "1") //대기 목록에 넣는거임
+                        myRef.setValue(matchingQ)  //이하 동문
+                    }
+                    else//waitlist에 이성이 있다면
+                    {
+                        database.getReference().child("usrInfo").child(obUID).child("chatUID").push().setValue("1")
+                        Toast.makeText(baseContext, "매칭 되었습니다!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+                }
+
+                override fun onChildRemoved(dataSnapshot: DataSnapshot) {
+
+                }
+
+                override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {
+
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+
+                }
+            })
+            //리스너 만들어서 자신의 유저정보안에 채팅방 uid가 생성되면 푸쉬 메시지
+
+            //startActivity(match_Intent) //채팅시작하는거 -> 수정해야됨(채팅 리스트뷰랑 연결)
+            //채팅방 uid를 생성하여 상대방과 자신의 유저정보에 등록 및 푸시 메시지
         }
         group_match_button.setOnClickListener {
             val g_intent = Intent(this,GroupMatch_main::class.java)
