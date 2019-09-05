@@ -61,7 +61,7 @@ class main_screen : AppCompatActivity() {
             myRef.setValue(usrinfo)
         }
         random_match_button.setOnClickListener {
-
+            val match_Intent = Intent(this, ChatActivity::class.java)
             val myRef = database.getReference().child("waitList").child(sex.toString()) //사용자의 성별 가져옴
             val opRef = database.getReference().child("waitList").child(opsex.toString())
             opRef.addChildEventListener(object : ChildEventListener{
@@ -98,7 +98,7 @@ class main_screen : AppCompatActivity() {
             })
             //리스너 만들어서 자신의 유저정보안에 채팅방 uid가 생성되면 푸쉬 메시지
 
-            //startActivity(match_Intent) //채팅시작하는거 -> 수정해야됨(채팅 리스트뷰랑 연결)
+            startActivity(match_Intent) //채팅시작하는거 -> 수정해야됨(채팅 리스트뷰랑 연결)
             //채팅방 uid를 생성하여 상대방과 자신의 유저정보에 등록 및 푸시 메시지
         }
         group_match_button.setOnClickListener {
