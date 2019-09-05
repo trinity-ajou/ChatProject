@@ -16,9 +16,7 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".AuthenticationActivity" />
         <activity android:name=".AuthenticationActivity2" />
-
-        <activity android:name=".GroupMatch_main"
-                android:theme="@style/CustomTheme"/>
+        <activity android:name=".GroupMatch_main"/>
 
         <activity android:name=".main_screen" />
         <activity android:name=".MainActivity">

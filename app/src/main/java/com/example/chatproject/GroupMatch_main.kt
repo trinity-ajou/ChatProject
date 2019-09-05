@@ -1,5 +1,6 @@
 package com.example.chatproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_group_match_main.*
 import kotlinx.android.synthetic.main.fragment_chat_list.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -16,21 +18,28 @@ class GroupMatch_main : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
-    val room_list = ArrayList<ChatList_Data>()
-    var room_id = Hashtable<String, String>()
+    private val room_list = ArrayList<ChatList_Data>()
+    private var room_id = Hashtable<String, String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_match_main)
 
         setTitle("그룹 매치")
 
-        var database = FirebaseDatabase.getInstance()
-        var myRef = database.getReference("Room")
+
+        backkkkk.setOnClickListener{
+            val b_intent = Intent(this,main_screen::class.java)
+            startActivity(b_intent)
+        }
+
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("chat_room")
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = ChatAdapter(this, room_list)
 
-        recyclerView = view_chatlist.apply {
+        recyclerView = view_chatlist_all.apply {
             setHasFixedSize(true)
 
             // use a linear layout manager
@@ -74,5 +83,6 @@ class GroupMatch_main : AppCompatActivity() {
                     }
                 })
         }
+
     }
 }
