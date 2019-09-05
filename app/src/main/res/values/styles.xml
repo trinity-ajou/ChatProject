@@ -5,10 +5,21 @@
         <item name="colorPrimary">#FF7979</item>
         <item name="colorPrimaryDark">#FFD5D5</item>
         <item name="colorAccent">@color/colorAccent</item>
-
     </style>
+
+    <style name="CustomTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FFD5D5</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">#FFFFFF</item>
+    </style>
+
+
+
     <!-- For Splash Screen -->
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
+
 </resources>

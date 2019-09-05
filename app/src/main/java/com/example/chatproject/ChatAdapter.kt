@@ -30,7 +30,7 @@ public class ChatAdapter(val context : Context?,val data : ArrayList<ChatList_Da
                                     viewType: Int): ChatAdapter.MyViewHolder {
         // create a new view
         val textView : View = LayoutInflater.from(parent.context)
-                .inflate(R.layout.chatlist_data, parent, false) as View
+            .inflate(R.layout.chatlist_data, parent, false) as View
         // set the view's size, margins, paddings and layout parameters
 
         return MyViewHolder(textView)
@@ -43,7 +43,7 @@ public class ChatAdapter(val context : Context?,val data : ArrayList<ChatList_Da
         holder.mTextEmail.setText(data.get(position).email)
         holder.mText.setText(data.get(position).text)
         holder.mButton.setOnClickListener{
-                val inwe = Intent(context, ChatActivity::class.java)
+            val inwe = Intent(context, ChatActivity::class.java)
             if(context is Context)
                 context.startActivity(inwe)
         }

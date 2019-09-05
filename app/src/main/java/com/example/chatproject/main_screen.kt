@@ -1,5 +1,6 @@
 package com.example.chatproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,8 +29,16 @@ class main_screen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
 
+        setTitle("매칭")
+
         random_match_button.setOnClickListener {
+
         }
+        group_match_button.setOnClickListener {
+            val g_intent = Intent(this,GroupMatch_main::class.java)
+            startActivity(g_intent)
+        }
+
         bottom_menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
@@ -39,29 +48,38 @@ class main_screen : AppCompatActivity() {
                 val fragmentA = MatchingFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentA)
                     .commit()
+                setTitle("매칭")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.chat_room -> {
                 val fragmentB = ChatListFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentB)
                     .commit()
+
+                setTitle("대화방")
                 random_match_button.setVisibility(View.GONE)
+                group_match_button.setVisibility(View.GONE)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.more -> {
                 val fragmentC = MoreFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentC)
                     .commit()
+                setTitle("설정")
                 random_match_button.setVisibility(View.GONE)
+                group_match_button.setVisibility(View.GONE)
                 return@OnNavigationItemSelectedListener true
             }
+            /*
             R.id.group -> {
                 val fragmentD = GroupFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_screen_frame, fragmentD)
                     .commit()
                 random_match_button.setVisibility(View.GONE)
+                group_match_button.setVisibility(View.GONE)
                 return@OnNavigationItemSelectedListener true
             }
+            */
         }
         false
     }
@@ -74,8 +92,17 @@ class ChatListFragment : Fragment() {
     val room_list = ArrayList<ChatList_Data>()
     var room_id = Hashtable<String, String>()
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var v = inflater.inflate(R.layout.fragment_chat_list, container, false)
+
+        /*
+        button_to.setOnClickListener{
+            val chat_intent = Intent(getActivity(), GroupMatch_main::class.java)
+            startActivity(chat_intent)
+        }
+*/
         return v
     }
 
@@ -85,7 +112,7 @@ class ChatListFragment : Fragment() {
         var myRef = database.getReference("Room")
 
         viewManager = LinearLayoutManager(activity)
-        viewAdapter = ChatAdapter( context,room_list)
+        viewAdapter = ChatAdapter(context, room_list)
 
         recyclerView = view_chatlist.apply {
             setHasFixedSize(true)

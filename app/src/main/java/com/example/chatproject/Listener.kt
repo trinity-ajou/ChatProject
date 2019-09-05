@@ -24,6 +24,7 @@ class MoreFragment : Fragment() {
     }
 }
 
+/*
 class GroupFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.activity_group_match_main, container, false)
@@ -32,3 +33,4 @@ class GroupFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
     }
 }
+*/

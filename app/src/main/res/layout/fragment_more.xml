@@ -7,11 +7,13 @@
         android:orientation="vertical" >
 
     <FrameLayout
-            android:layout_width="392dp"
-            android:layout_height="575dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="13dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="70dp"
             android:background="#D3FFFFFF"
             android:foregroundGravity="center_vertical">
 
@@ -20,7 +22,7 @@
                 android:layout_width="372dp"
                 android:layout_height="63dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:drawableLeft="@drawable/drawable_left_image_customise"
                 android:drawablePadding="40dip"
@@ -36,7 +38,7 @@
                 android:layout_width="372dp"
                 android:layout_height="63dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="170dp"
+                android:layout_marginTop="90dp"
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:drawableLeft="@drawable/drawable_left_image_customise"
                 android:drawablePadding="40dip"
@@ -52,7 +54,7 @@
                 android:layout_width="372dp"
                 android:layout_height="63dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="160dp"
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:drawableLeft="@drawable/drawable_left_image_customise"
                 android:drawablePadding="40dip"
@@ -68,7 +70,7 @@
                 android:layout_width="372dp"
                 android:layout_height="63dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="310dp"
+                android:layout_marginTop="230dp"
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:drawableLeft="@drawable/drawable_left_image_customise"
                 android:drawablePadding="40dip"
@@ -78,15 +80,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="19sp"
                 android:textStyle="normal" />
-
-        <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="타이틀 바 들어갈 자리"
-                android:textSize="24sp"
-                android:textStyle="bold" />
 
     </FrameLayout>
 </LinearLayout>

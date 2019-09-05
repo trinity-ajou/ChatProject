@@ -9,16 +9,17 @@
         android:background="@drawable/login_theme3" android:id="@+id/box">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="394dp"
-            android:layout_height="51dp"
             android:id="@+id/bottom_menu"
-            app:itemBackground="@color/common_google_signin_btn_text_dark_default" android:visibility="visible"
-            app:menu="@menu/bottom_menu"
-            android:background="#9AFFFFFF" app:itemIconTint="@color/common_google_signin_btn_text_dark_disabled"
-            android:layout_marginBottom="7dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="20dp" android:layout_marginStart="20dp" android:layout_marginRight="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_width="411dp"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:visibility="visible"
+            app:itemBackground="@color/common_google_signin_btn_text_dark_default"
+            app:itemIconTint="@color/common_google_signin_btn_text_dark_disabled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_menu" />
 
     <FrameLayout
             android:id="@+id/main_screen_frame"
@@ -31,16 +32,32 @@
 
         <ToggleButton
                 android:id="@+id/random_match_button"
-                android:layout_width="206dp"
-                android:layout_height="135dp"
-                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_width="138dp"
+                android:layout_height="109dp"
+                android:layout_gravity="left|center_vertical"
 
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button"
                 android:gravity="center_horizontal|center_vertical"
                 android:textColor="#ff7979"
-                android:textOff="매 . 칭                       시 . 작"
+                android:textOff="랜 덤 매 칭"
                 android:textOn="매칭 중..."
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        <Button
+                android:id="@+id/group_match_button"
+                android:layout_width="140dp"
+                android:layout_height="111dp"
+                android:layout_gravity="right|center_vertical"
+
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="#ff7979"
+                android:text="그 룹 매 칭"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
